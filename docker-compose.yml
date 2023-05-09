@@ -17,7 +17,7 @@ services:
       - LAMBDA_REMOVE_CONTAINERS=true
       - DOCKER_HOST=unix:///var/run/docker.sock
       - HOST_TMP_FOLDER=${TMPDIR}   
-      - SERVICES=lambda,events
+      - SERVICES=lambda,events, s3, sqs, sns
       - AWS_DEFAULT_REGION=us-east-1
       - HOST_URL=http://localhost:4566
       - AWS_ACCESS_KEY_ID=guest
