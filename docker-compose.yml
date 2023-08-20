@@ -4,29 +4,29 @@ networks:
   localstack-net:
     name: localstack-net
     driver: bridge
-
+ 
 services:
   localstack:
-    container_name: lambda-test-dotnet
     image: localstack/localstack
-    environment:
-      - DEBUG=1   
+    privileged: true
+    network_mode: bridge
+    networks:
+      - localstack-net
+    ports:
+      - "4566:4566"      
+    environment:     
+      - DEBUG=1
       - DATA_DIR=/var/lib/localstack/data
+      - SERVICES=acm, apigateway, cloudformation, cloudwatch, dynamodb, dynamodbstreams, ec2, es, events, firehose, iam, kinesis, kms, lambda, rds, route53, s3, s3api, secretsmanager, ses, sns, sqs, ssm, stepfunctions, sts                    
       - LAMBDA_EXECUTOR=docker-reuse
       - LAMBDA_REMOTE_DOCKER=false
-      - LAMBDA_REMOVE_CONTAINERS=true
+      - LAMBDA_REMOVE_CONTAINERS=true      
       - DOCKER_HOST=unix:///var/run/docker.sock
-      - HOST_TMP_FOLDER=${TMPDIR}   
-      - SERVICES=lambda,events, s3, sqs, sns
-      - AWS_DEFAULT_REGION=us-east-1
-      - HOST_URL=http://localhost:4566
-      - AWS_ACCESS_KEY_ID=guest
-      - AWS_SECRET_ACCESS_KEY=guest
-      - AWS_DEFAULT_OUTPUT=json
-    ports:
-      - 4566:4566
-      - 4571:4571     
+      - HOST_TMP_FOLDER=${TMPDIR}
     volumes:
+      #- "${TMPDIR:-./.temp/localstack}:/var/lib/localstack"
+      # - "${TMPDIR:-/tmp/localstack}:/tmp/localstack"
+      #- "/var/run/docker.sock:/var/run/docker.sock" 
       - ./data:/var/lib/localstack      
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - ./setup:/docker-entrypoint-initaws.d
+      - ./bin:/docker-entrypoint-initaws.d
