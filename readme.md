@@ -1,4 +1,3 @@
-
 # Instalação e Configuração do Localstack
 
 ## Pré-Requisitos
@@ -7,6 +6,12 @@ As ferramentas do aws cli e docker são pré-requitos para trabalhar com o local
 
 - [Docker](https://docs.docker.com/get-docker/)
 - [AWS CLI](https://docs.aws.amazon.com/pt_br/cli/latest/userguide/getting-started-install.html)
+
+Se o uso do Docker não for viável, uma alternativa é utilizar o Podman. Para empregar o Podman, será necessário instalar o Python3 e o pip3.
+
+- [PodMan](https://podman.io/)
+- [Python](https://www.python.org/downloads/)
+- [Pip3](https://www.temok.com/blog/how-to-install-pip3/)
 
 ## Configuração AWS CLI
 
@@ -39,7 +44,7 @@ Os seguintes valores devem ser escolhidos para os inputs *Default region name* e
 
 ---
 
-## Inicializando LocalStack
+## Inicializando LocalStack (Docker)
 
 Todas as configurações do LocalStack estão definidas no arquivo docker-compose.yml. Para iniciar o container, siga as etapas abaixo:
 
@@ -49,10 +54,22 @@ Todas as configurações do LocalStack estão definidas no arquivo docker-compos
 4. Se o container estiver em funcionamento, o seguinte resultado será exibido no terminal.
 
 ```shell
-
 CONTAINER ID   IMAGE                   COMMAND                  CREATED        STATUS                  PORTS                                             NAMES
 cb2ddd8afe5f   localstack/localstack   "docker-entrypoint.sh"   30 hours ago   Up 30 hours (healthy)   0000-0000/tcp, 0000/tcp, 0.0.0.0:0000->0000/tcp   localstack-localstack-1
+```
 
+## Inicializando LocalStack (Podman)
+
+Todas as configurações do LocalStack estão definidas no arquivo docker-compose.yml. Para iniciar o container, siga as etapas abaixo:
+
+1. Abra o terminal e navegue até a pasta onde o arquivo docker-compose.yml está localizado.
+2. Inicie uma nova instância da imagem executando o comando `podman-compose up -d`.
+3. Utilize o comando `podman ps` para confirmar que o container está em execução.
+4. Se o container estiver em funcionamento, o seguinte resultado será exibido no terminal.
+
+```shell
+CONTAINER ID  IMAGE                                   COMMAND     CREATED         STATUS                    PORTS                    NAMES
+5b328d9c69c2  docker.io/localstack/localstack:latest              33 minutes ago  Up 31 seconds (starting)  0.0.0.0:00000->0000/tcp  localstack_localstack_1
 ```
 
 # Getting Started
