@@ -1,0 +1,35 @@
+{
+    "AccessKey": "test",
+    "SecretKey": "test",
+    "ServiceUrl": "http://localhost:4566",
+    "Profile": "localstack",
+    "Topics": [
+        {
+            "Name": "exemplo.fifo",
+            "Queues": [
+                {
+                    "Name": "exemplo-api.fifo",
+                    "DeadLetter": "dt-exemplo-api.fifo"
+                }
+            ]
+        }
+    ],
+    "Queues": [
+        {
+            "Name": "exemplo",
+            "DeadLetter": "dt-exemplo"
+        }
+    ],
+    "Buckets": [
+        {
+            "Name": "bucket-exemplo"
+        }
+    ],
+    "SecretsManager": [
+        {
+            "Name": "exemplo-qa",
+            "Content": "{ \"CHAVE\": \"VALOR\"}",
+            "Description": ""
+        }
+    ]
+}
