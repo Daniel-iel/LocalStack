@@ -72,6 +72,15 @@ CONTAINER ID  IMAGE                                   COMMAND     CREATED       
 5b328d9c69c2  docker.io/localstack/localstack:latest              33 minutes ago  Up 31 seconds (starting)  0.0.0.0:00000->0000/tcp  localstack_localstack_1
 ```
 
+## Provisionando da infraestrutura local no localstack
+
+O provisionamento para criar os objetos no LocalStack é realizado por meio de um script em Python.
+
+1. Verifique se todos os recursos, como SQS, SNS, S3 e Secret Manager, estão devidamente configurados no arquivo `infra-objects.json`.
+2. Abra um terminal na raiz do seu projeto, onde se encontram arquivos como `docker-compose.yml, create-infra.py`.
+3. Execute o comando python `create-infra.py`.
+4. Se tudo estiver configurado corretamente, você verá a mensagem `Criação dos recursos concluída` exibida no terminal.
+
 # Getting Started
 
 Ao realizar interações com o LocalStack por meio da linha de comando, é fundamental que os atributos *--endpoint-url http://localhost:4566 e --profile nome do perfil* estejam sempre vinculados aos comandos. Isso permite que a interface de linha de comando da AWS reconheça que o comando está sendo executado em uma instância local do AWS.
@@ -160,6 +169,14 @@ aws sqs send-message --queue-url <url da fila> --message-body "<mensagem>" --end
 Se o seu processo de leitura de mensagens requer informações adicionais, como o nome do evento, por exemplo, esses detalhes podem ser incluídos usando uma tag *--message-attributes '{"AttributeName":{"DataType":"String","StringValue":"AttributeValue"}}'*
 
 ---
+
+### Configuração da Fila
+
+Usado para obter os atributos de uma fila Amazon Simple Queue Service (SQS).
+
+```shell
+aws sqs get-queue-attributes --queue-url <url da fila> --endpoint-url http://localhost:4566 --profile <nome do profile>
+```
 
 ### Dead-Letter Queue (DQL)
 
