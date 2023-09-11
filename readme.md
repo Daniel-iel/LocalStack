@@ -39,7 +39,7 @@ Quando você executar o comando `aws configure`, o terminal vai pedir para você
 
 Os seguintes valores devem ser escolhidos para os inputs *Default region name* e *Default output format*.
 
-- *Default region name:* sa-east-1
+- *Default region name:* us-east-1
 - *Default output format:* json ou yaml
 
 ---
@@ -63,9 +63,10 @@ cb2ddd8afe5f   localstack/localstack   "docker-entrypoint.sh"   30 hours ago   U
 Todas as configurações do LocalStack estão definidas no arquivo docker-compose.yml. Para iniciar o container, siga as etapas abaixo:
 
 1. Abra o terminal e navegue até a pasta onde o arquivo docker-compose.yml está localizado.
-2. Inicie uma nova instância da imagem executando o comando `podman-compose up -d`.
-3. Utilize o comando `podman ps` para confirmar que o container está em execução.
-4. Se o container estiver em funcionamento, o seguinte resultado será exibido no terminal.
+2. Execute o comando `pip3 install podman-compose`.
+3. Inicie uma nova instância da imagem executando o comando `podman-compose up -d`.
+4. Utilize o comando `podman ps` para confirmar que o container está em execução.
+5. Se o container estiver em funcionamento, o seguinte resultado será exibido no terminal.
 
 ```shell
 CONTAINER ID  IMAGE                                   COMMAND     CREATED         STATUS                    PORTS                    NAMES
@@ -78,8 +79,9 @@ O provisionamento para criar os objetos no LocalStack é realizado por meio de u
 
 1. Verifique se todos os recursos, como SQS, SNS, S3 e Secret Manager, estão devidamente configurados no arquivo `infra-objects.json`.
 2. Abra um terminal na raiz do seu projeto, onde se encontram arquivos como `docker-compose.yml, create-infra.py`.
-3. Execute o comando python `create-infra.py`.
-4. Se tudo estiver configurado corretamente, você verá a mensagem `Criação dos recursos concluída` exibida no terminal.
+3. Execute o comando para instalar o boto 3 `pip3 install boto3`.
+4. Execute o comando python `create-infra.py` para criar os objetos no localstack.
+5. Se tudo estiver configurado corretamente, você verá a mensagem `Criação dos recursos concluída` exibida no terminal.
 
 # Getting Started
 
