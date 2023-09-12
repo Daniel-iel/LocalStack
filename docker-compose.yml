@@ -1,17 +1,10 @@
 version: "3.8"
 
-networks:
-  localstack-net:
-    name: localstack-net
-    driver: bridge
- 
 services:
   localstack:
     image: localstack/localstack
     privileged: true
     network_mode: bridge
-    networks:
-      - localstack-net
     ports:
       - "4566:4566"      
     environment:     
@@ -24,9 +17,6 @@ services:
       - DOCKER_HOST=unix:///var/run/docker.sock
       - HOST_TMP_FOLDER=${TMPDIR}
     volumes:
-      #- "${TMPDIR:-./.temp/localstack}:/var/lib/localstack"
-      # - "${TMPDIR:-/tmp/localstack}:/tmp/localstack"
-      #- "/var/run/docker.sock:/var/run/docker.sock" 
       - ./data:/var/lib/localstack      
       - "/var/run/docker.sock:/var/run/docker.sock"
       - ./bin:/docker-entrypoint-initaws.d
