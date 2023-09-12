@@ -1,5 +1,9 @@
 # Instalação e Configuração do Localstack
 
+## Disclaimer
+
+Neste repo, apenas falamos do uso dos serviços SQS, SNS, S3 e Secrets Manager.
+
 ## Pré-Requisitos
 
 As ferramentas do aws cli e docker são pré-requitos para trabalhar com o localstack.
