@@ -2,7 +2,7 @@
 
 ## Disclaimer
 
-Neste repo, apenas falamos do uso dos serviços SQS, SNS, S3 e Secrets Manager.
+Neste repo, apenas falamos do uso dos serviços SQS, SNS, S3 e Secrets Manager disponível no localstack.
 
 ## Pré-Requisitos
 
