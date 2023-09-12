@@ -32,7 +32,7 @@ options:
 aws configure --profile <nome do profile>
 ```
 
-Quando você executar o comando `aws configure`, o terminal vai pedir para você fornecer alguns dados importantes, como o *"AWS Access Key ID"*, *"AWS Secret Access Key"*, *"Default region name"* e *"Default output format"*. Esses dados serão utilizados nos arquivos de appsettings das aplicações.
+Quando você executar o comando `aws configure`, o terminal vai pedir para você fornecer alguns dados importantes, como o *"AWS Access Key ID"*, *"AWS Secret Access Key"*, *"Default region name"* e *"Default output format"*.
 
 ---
 **NOTE**
