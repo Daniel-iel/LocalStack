@@ -15,7 +15,7 @@ Se o uso do Docker não for viável, uma alternativa é utilizar o Podman. Para 
 
 ## Configuração AWS CLI
 
-Antes de começar, verifique se o AWS CLI foi instalado corretamente usando o comando aws -h. Se a instalação foi bem-sucedida, você verá o output abaixo no terminal.
+Antes de começar, verifique se o AWS CLI foi instalado corretamente usando o comando `aws -h`. Se a instalação foi bem-sucedida, você verá o output abaixo no terminal.
 
 ```cmd
 usage: aws [-h] [--profile PROFILE] [--debug]
