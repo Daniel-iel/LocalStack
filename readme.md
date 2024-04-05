@@ -10,12 +10,14 @@ As ferramentas do aws cli e docker são pré-requitos para trabalhar com o local
 
 - [Docker](https://docs.docker.com/get-docker/)
 - [AWS CLI](https://docs.aws.amazon.com/pt_br/cli/latest/userguide/getting-started-install.html)
+- [Stackspot CLI](https://docs.stackspot.com/en/home/stk-cli)
 
 Se o uso do Docker não for viável, uma alternativa é utilizar o Podman. Para empregar o Podman, será necessário instalar o Python3 e o pip3.
 
 - [PodMan](https://podman.io/)
 - [Python](https://www.python.org/downloads/)
 - [Pip3](https://www.temok.com/blog/how-to-install-pip3/)
+- [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
 
 ## Configuração AWS CLI
 
@@ -86,6 +88,22 @@ O provisionamento para criar os objetos no LocalStack é realizado por meio de u
 3. Execute o comando para instalar o boto 3 `pip3 install boto3`.
 4. Execute o comando python `create-infra.py` para criar os objetos no localstack.
 5. Se tudo estiver configurado corretamente, você verá a mensagem `Criação dos recursos concluída` exibida no terminal.
+
+## Provisionando da infraestrutura local no localstack usando stackspot
+
+O provisionamento para criar os objetos no LocalStack utilizando o stackspot cli.
+
+1. Verifique se todos os recursos, como SQS, SNS, S3 e Secret Manager, estão devidamente configurados no arquivo `infra-objects.json`.
+2. Abra um terminal na raiz do seu projeto, onde se encontram arquivos como `docker-compose.yml, create-infra.py, plugin.yaml`.
+3. Execute o comando stk `stk apply plugin <path do plugin>` para criar os objetos no localstack.
+4. Se tudo estiver configurado corretamente, você verá a mensagem `Criação dos recursos concluída` exibida no terminal.
+
+---
+**NOTE**
+
+O arquivo plugin.yaml é fundamental para utilização do stackspot, pois concentra todos os comandos necessários para a inicialização e criação dos objetos dentro do ambiente do localstack.
+
+---
 
 # Getting Started
 

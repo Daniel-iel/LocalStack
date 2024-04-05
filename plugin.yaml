@@ -1,0 +1,35 @@
+schema-version: v2
+kind: plugin
+metadata:
+  name: Localstack
+  display-name: Localstack
+  description: Plugin para criação do de infra no localstack
+  version: 0.0.1
+  picture: plugin.png
+spec:
+  type: app
+  compatibility:
+    - python
+    - localstack  
+  about: docs/about.md
+  implementation: docs/implementation.md
+  release-notes: docs/release-notes-0.0.1.md
+  requirements: docs/requirements.md
+  single-use: False
+  technologies:
+    - Api
+    - Localstack
+    - Aws
+  stk-projects-only: false
+  hooks:
+
+    - type: run
+      trigger: before-render
+      windows:
+        - py --version
+        - pip --version
+        - docker --version
+        - pip install boto3
+        - docker-compose up -d
+        - py create-infra.py
+        - cmd /c echo Localstack configurado com sucesso!
